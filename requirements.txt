@@ -1,0 +1,6 @@
+nonebot2 >= 2.0.0.a15
+nonebot-adapter-cqhttp >= 2.0.0a15
+nonebot-plugin-apscheduler >= 0.1.2
+nb-cli >= 0.5.0
+aiohttp >= 3.7.4.post0
+pydantic >= 1.8.2

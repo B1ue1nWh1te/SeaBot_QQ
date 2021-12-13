@@ -1,0 +1,27 @@
+version: "3"
+services:
+  nonebot:
+    build: .
+    restart: always
+    container_name: seabot_qq
+    volumes:
+      - "./:/seabot_qq/"
+    ports:
+      - "1001:8080" # 映射端口到宿主机 宿主机端口:容器端口
+    env_file:
+      - ".env.prod" # fastapi 使用的环境变量文件
+    environment:
+      - ENVIRONMENT=prod # 配置 nonebot 运行环境，此项会被 .env 文件覆盖
+      - APP_MODULE=bot:app # 配置 asgi 入口
+      - MAX_WORKERS=1 # 如果你有多个QQ，且存在 self_id 指定，多个 worker 会导致无法找到其他 websocket 连接
+
+  go-cqhttp:
+    image: silicer/go-cqhttp:latest
+    container_name: go-cqhttp
+    restart: always
+    depends_on:
+      - nonebot
+    ports:
+      - "1002:8080"
+    volumes:
+      - ./go-cqhttp:/data

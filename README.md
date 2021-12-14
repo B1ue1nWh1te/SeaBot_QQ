@@ -50,23 +50,41 @@ SeaBot 计划的 QQ 分支
 
 # 功能调用示例
 
-假设机器人昵称为 `小海` 。
+声明：消息内容为通过 API 获取的信息，仅做功能展示示例，不代表任何政治立场观点。
 
-- Call 回复 | `小海`
+我们假设机器人昵称为 `千机` 。
 
-- 打卡提醒 | `小海-打卡提醒`
+- Call 回复 | `千机`
 
-* 知乎热榜 | `小海-知乎`
+  - ![示例1](example/call.jpg)
+
+- 打卡提醒 | `千机-打卡提醒`
+
+  - ![示例2](example/clockin.jpg)
+
+- 知乎热榜 | `千机-知乎`
+
   - 若在一定时间内回复 `详情-1` 机器人会分享对应的链接
-  - 或 `小海-知乎 1,2` 这样就会直接分享对应的链接
+  - 或 `千机-知乎 1,2` 这样就会直接分享对应的链接
 
-- 微博热搜 | `小海-微博`
+  - ![示例3](example/zhihu1.jpg)
+  - ![示例4](example/zhihu2.jpg)
 
-- 央视新闻 | `小海-新闻`
+- 微博热搜 | `千机-微博`
 
-- 同花顺快讯 | `小海-同花顺`
+  - ![示例5](example/weibo.jpg)
 
-- 历史上的今天 | `小海-历史` (无详情)
+* 央视新闻 | `千机-新闻`
+
+  - ![示例6](example/news.jpg)
+
+* 同花顺快讯 | `千机-同花顺`
+
+  - ![示例7](example/tonghuashun.jpg)
+
+* 历史上的今天 | `千机-历史`
+
+  - ![示例8](example/todaybefore.jpg)
 
 # 文档
 
@@ -86,10 +104,39 @@ SeaBot 计划的 QQ 分支
 
 使用容器化部署可以让你非常快速地把机器人服务跑起来(一顿操作 调调配置就可以直接用了)。
 
+CentOS 下安装 docker 和 docker-compose:
+
+```shell
+# 一键安装docker
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+# 查看docker版本
+docker -v
+# 设置开机启动
+systemctl enable docker
+# 启动
+systemctl start docker
+
+# 安装docker-compose
+pip3 install docker-compose
+# 国内加速
+# sudo curl -L "https://github.com.cnpmjs.org/docker/compose/releases/download/v2.2.2/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+# 二进制文件应用可执行权限
+sudo chmod +x /usr/local/bin/docker-compose
+# 创建命令软链接
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+# 查看docker-compose版本
+docker-compose --version
+```
+
 假设你已经在 Linux 上安装并配置好了 docker 和 docker-compose。
 
 ```shell
+# 克隆本仓库
+# 国内加速 git clone https://github.com.cnpmjs.org/B1ue1nWh1te/SeaBot_QQ
 git clone https://github.com/B1ue1nWh1te/SeaBot_QQ
+
+# 切换至仓库目录
 cd SeaBot_QQ
 ```
 
@@ -102,6 +149,7 @@ cd SeaBot_QQ
 两项配置修改完成后，在 `SeaBot_QQ` 目录下打开终端，执行如下命令。
 
 ```shell
+# 开始自动容器服务编排
 docker-compose up -d
 ```
 
@@ -110,6 +158,10 @@ docker-compose up -d
 初次使用时，需要在 `go-cqhttp` 端扫码登录机器人账号，可使用如下命令查看并扫码。
 
 ```shell
+# 查看go-cqhttp容器控制台输出
+docker logs -f go-cqhttp
+
+# 查看seabot_qq容器控制台输出
 docker logs -f go-cqhttp
 ```
 

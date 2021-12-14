@@ -8,6 +8,7 @@ async def get_weather(city: str):
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://wthrcdn.etouch.cn/weather_mini", params={"city": city}, headers=Headers, timeout=5) as response:
+                # WeatherDict = await response.json()  用了会有莫名错误 之后有时间再解决 能用就行 后面的同理
                 WeatherDict = await response.text()
                 WeatherDict = dict(eval(WeatherDict))["data"]["forecast"]
                 WeatherDetail = "{} {}/{}".format(WeatherDict[0]["type"], WeatherDict[0]["high"].replace("高温 ", ""), WeatherDict[0]["low"].replace("低温 ", ""))

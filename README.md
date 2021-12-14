@@ -48,54 +48,6 @@ SeaBot 计划的 QQ 分支
 
 - [x] [所有功能均可定时](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins)(推送时间和次数可自行配置)
 
-# 功能调用示例
-
-声明：消息内容为通过 API 获取的信息，仅做功能展示示例，不代表任何政治立场观点。
-
-我们假设机器人昵称为 `千机` 。
-
-- Call 回复 | `千机`
-
-  - ![示例1](example/call.jpg)
-
-- 打卡提醒 | `千机-打卡提醒`
-
-  - ![示例2](example/clockin.jpg)
-
-- 知乎热榜 | `千机-知乎`
-
-  - 若在一定时间内回复 `详情-1` 机器人会分享对应的链接
-  - 或 `千机-知乎 1,2` 这样就会直接分享对应的链接
-
-  - ![示例3](example/zhihu1.jpg)
-  - ![示例4](example/zhihu2.jpg)
-
-- 微博热搜 | `千机-微博`
-
-  - ![示例5](example/weibo.jpg)
-
-* 央视新闻 | `千机-新闻`
-
-  - ![示例6](example/news.jpg)
-
-* 同花顺快讯 | `千机-同花顺`
-
-  - ![示例7](example/tonghuashun.jpg)
-
-* 历史上的今天 | `千机-历史`
-
-  - ![示例8](example/todaybefore.jpg)
-
-# 文档
-
-以下文档可以参考。
-
-- [nonebot2 官方文档](https://v2.nonebot.dev/guide/)
-
-- [go-cqhttp 官方文档](https://docs.go-cqhttp.org/guide/)
-
-- SeaBot_QQ 使用教程(还没写- -)
-
 # 部署
 
 目前只做了容器化部署的教程，常规部署请自行研究，比较简单。
@@ -166,6 +118,54 @@ docker logs -f go-cqhttp
 ```
 
 一切顺利的话，很快就可以用上机器人了。
+
+# 文档
+
+以下文档可以参考。
+
+- [nonebot2 官方文档](https://v2.nonebot.dev/guide/)
+
+- [go-cqhttp 官方文档](https://docs.go-cqhttp.org/guide/)
+
+- SeaBot_QQ 使用教程(还没写- -)
+
+# 功能调用示例
+
+声明：消息内容为通过 API 获取的信息，仅做功能展示示例，不代表任何政治立场观点。
+
+我们假设机器人昵称为 `千机` 。
+
+- Call 回复 | `千机`
+
+  - ![示例1](example/call.jpg)
+
+- 打卡提醒 | `千机-打卡提醒`
+
+  - ![示例2](example/clockin.jpg)
+
+- 知乎热榜 | `千机-知乎`
+
+  - 若在一定时间内回复 `详情-1` 机器人会分享对应的链接
+  - 或 `千机-知乎 1,2` 这样就会直接分享对应的链接
+
+  - ![示例3](example/zhihu1.jpg)
+  - ![示例4](example/zhihu2.jpg)
+
+- 微博热搜 | `千机-微博`
+
+  - ![示例5](example/weibo.jpg)
+
+* 央视新闻 | `千机-新闻`
+
+  - ![示例6](example/news.jpg)
+
+* 同花顺快讯 | `千机-同花顺`
+
+  - ![示例7](example/tonghuashun.jpg)
+
+* 历史上的今天 | `千机-历史`
+
+  - ![示例8](example/todaybefore.jpg)
 
 # 开源许可
 

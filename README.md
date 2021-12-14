@@ -33,12 +33,19 @@ SeaBot 计划的 QQ 分支
 # 已实现功能
 
 - [x] [Call 回复](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/chat)(就是机器人昵称被 Call 时进行简单的回复)
+
 - [x] [定时打卡提醒](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/clockin)(emm 学校每天都要体温打卡 超级管理员可主动调用(防风控无法@全体))
+
 - [x] [知乎热榜推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认仅展示前十条的标题)
+
 - [x] [微博热搜推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认仅展示前十条的标题)
+
 - [x] [央视新闻推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认展示前五条的标题及详情内容)
+
 - [x] [同花顺快讯推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认展示前五条的标题及详情内容)
+
 - [x] [历史上的今天推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/todaybefore)(数据来源本质上是百度的历史上的今天)
+
 - [x] [所有功能均可定时](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins)(推送时间和次数可自行配置)
 
 # 功能调用示例
@@ -46,6 +53,7 @@ SeaBot 计划的 QQ 分支
 假设机器人昵称为 `小海` 。
 
 - Call 回复 | `小海`
+
 - 打卡提醒 | `小海-打卡提醒`
 
 * 知乎热榜 | `小海-知乎`
@@ -53,8 +61,11 @@ SeaBot 计划的 QQ 分支
   - 或 `小海-知乎 1,2` 这样就会直接分享对应的链接
 
 - 微博热搜 | `小海-微博`
+
 - 央视新闻 | `小海-新闻`
+
 - 同花顺快讯 | `小海-同花顺`
+
 - 历史上的今天 | `小海-历史` (无详情)
 
 # 文档
@@ -62,8 +73,10 @@ SeaBot 计划的 QQ 分支
 以下文档可以参考。
 
 - [nonebot2 官方文档](https://v2.nonebot.dev/guide/)
+
 - [go-cqhttp 官方文档](https://docs.go-cqhttp.org/guide/)
-- [SeaBot_QQ 使用教程(还没写- -)]
+
+- SeaBot_QQ 使用教程(还没写- -)
 
 # 部署
 

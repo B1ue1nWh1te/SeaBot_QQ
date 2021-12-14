@@ -4,19 +4,21 @@
 
 SeaBot 计划的 QQ 分支
 
-能够获取新闻资讯并推送至 QQ 群 的机器人
+一个能够获取新闻资讯并推送至 QQ 的群聊机器人
 
-目前支持的信息来源有：知乎、微博、央视新闻、同花顺快讯、历史上的今天
+目前支持的信息来源有：
 
-基于 [nonebot2](https://github.com/nonebot/nonebot2) 开发
+[知乎](https://www.zhihu.com/)、[微博](https://weibo.com/)、[央视新闻](https://news.cctv.com/)、[同花顺快讯](https://news.10jqka.com.cn/realtimenews.html)、[历史上的今天](https://baike.baidu.com/calendar/)
 
-基于 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 实现
+主体基于 [nonebot2](https://github.com/nonebot/nonebot2) 开发
 
-![Lisence](https://img.shields.io/github/license/B1ue1nWh1te/SeaBot_QQ)
-![Release](https://img.shields.io/github/v/release/B1ue1nWh1te/SeaBot_QQ?include_prereleases)
-![Python Version](https://img.shields.io/badge/python-3.7+-blue)
-![NoneBot Version](https://img.shields.io/badge/nonebot2-latest-red)
-![go-cqhttp Version](https://img.shields.io/badge/gocqhttp-latest-green)
+消息推送基于 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 实现
+
+[![Lisence](https://img.shields.io/github/license/B1ue1nWh1te/SeaBot_QQ)](https://github.com/B1ue1nWh1te/SeaBot_QQ/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/B1ue1nWh1te/SeaBot_QQ?include_prereleases)](https://github.com/B1ue1nWh1te/SeaBot_QQ/releases/)
+[![Python Version](https://img.shields.io/badge/python-3.7+-blue)](https://www.python.org/)
+[![NoneBot Version](https://img.shields.io/badge/nonebot2-red)](https://github.com/nonebot/nonebot2)
+[![go-cqhttp Version](https://img.shields.io/badge/gocqhttp-purple)](https://github.com/Mrs4s/go-cqhttp)
 
 </div>
 
@@ -30,14 +32,14 @@ SeaBot 计划的 QQ 分支
 
 # 已实现功能
 
-- [x] [Call 回复(就是机器人昵称被 Call 时进行回复)]
-- [x] [定时打卡提醒(emm 我们学校每天都要体温打卡 超级管理员可主动调用)]
-- [x] [知乎热榜推送(仅标题)]
-- [x] [微博热搜推送(仅标题)]
-- [x] [央视新闻推送(含详情)]
-- [x] [同花顺快讯推送(含详情)]
-- [x] [历史上的今天推送]
-- [x] [所有推送实现定时(可自行配置)]
+- [x] [Call 回复](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/chat)(就是机器人昵称被 Call 时进行简单的回复)
+- [x] [定时打卡提醒](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/clockin)(emm 学校每天都要体温打卡 超级管理员可主动调用(防风控无法@全体))
+- [x] [知乎热榜推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认仅展示前十条的标题)
+- [x] [微博热搜推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认仅展示前十条的标题)
+- [x] [央视新闻推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认展示前五条的标题及详情内容)
+- [x] [同花顺快讯推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认展示前五条的标题及详情内容)
+- [x] [历史上的今天推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/todaybefore)(数据来源本质上是百度的历史上的今天)
+- [x] [所有功能均可定时](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins)(推送时间和次数可自行配置)
 
 # 功能调用示例
 
@@ -45,20 +47,33 @@ SeaBot 计划的 QQ 分支
 
 - Call 回复 | `小海`
 - 打卡提醒 | `小海-打卡提醒`
-- 知乎热榜 | `小海-知乎`
-  (若在一定时间内回复 `详情-1` 机器人会分享对应的链接) 或 ( `小海-知乎 1,2` 这样就会直接分享对应的链接)
-- 微博热搜 | `小海-微博` (同上)
-- 央视新闻 | `小海-新闻` (同上)
-- 同花顺快讯 | `小海-同花顺` (同上)
-- 历史上的今天 | `小海-历史` (无额外操作)
+
+* 知乎热榜 | `小海-知乎`
+  - 若在一定时间内回复 `详情-1` 机器人会分享对应的链接
+  - 或 `小海-知乎 1,2` 这样就会直接分享对应的链接
+
+- 微博热搜 | `小海-微博`
+- 央视新闻 | `小海-新闻`
+- 同花顺快讯 | `小海-同花顺`
+- 历史上的今天 | `小海-历史` (无详情)
+
+# 文档
+
+以下文档可以参考。
+
+- [nonebot2 官方文档](https://v2.nonebot.dev/guide/)
+- [go-cqhttp 官方文档](https://docs.go-cqhttp.org/guide/)
+- [SeaBot_QQ 使用教程(还没写- -)]
 
 # 部署
 
+目前只做了容器化部署的教程，常规部署请自行研究，比较简单。
+
 ## 容器化部署
 
-使用容器化部署可以让你非常快速地把机器人服务跑起来。
+使用容器化部署可以让你非常快速地把机器人服务跑起来(一顿操作 调调配置就可以直接用了)。
 
-假设你已经在 Linux 上安装并配置好了 Docker 和 docker-compose。
+假设你已经在 Linux 上安装并配置好了 docker 和 docker-compose。
 
 ```shell
 git clone https://github.com/B1ue1nWh1te/SeaBot_QQ
@@ -85,6 +100,8 @@ docker-compose up -d
 docker logs -f go-cqhttp
 ```
 
-# 许可证
+一切顺利的话，很快就可以用上机器人了。
 
-本项目使用 [MIT](https://choosealicense.com/licenses/mit/) 作为开源许可证。
+# 开源许可
+
+本项目使用 [GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/) 作为开源许可证。

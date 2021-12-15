@@ -8,10 +8,9 @@ async def get_weather(city: str):
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://wthrcdn.etouch.cn/weather_mini", params={"city": city}, headers=Headers, timeout=5) as response:
-                # WeatherDict = await response.json()  用了会有莫名错误 之后有时间再解决 能用就行 后面的同理
-                WeatherDict = await response.text()
-                WeatherDict = dict(eval(WeatherDict))["data"]["forecast"]
-                WeatherDetail = "{} {}/{}".format(WeatherDict[0]["type"], WeatherDict[0]["high"].replace("高温 ", ""), WeatherDict[0]["low"].replace("低温 ", ""))
+                WeatherDict = await response.json(content_type=None)
+                WeatherDict = WeatherDict["data"]["forecast"][0]
+                WeatherDetail = f'{WeatherDict["type"]} {WeatherDict["high"].replace("高温 ", "")}/{WeatherDict["low"].replace("低温 ", "")}'
                 return WeatherDetail
     except:
         return "获取信息失败"
@@ -21,8 +20,7 @@ async def get_saying():
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://open.iciba.com/dsapi/", headers=Headers, timeout=5) as response:
-                Data = await response.text()
-                Data = dict(eval(Data))
+                Data = await response.json(content_type=None)
                 Data = f'{Data["note"]}\n{Data["content"]}\n[CQ:image,file={Data["fenxiang_img"]}]'
                 return Data
     except:

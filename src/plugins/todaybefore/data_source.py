@@ -8,8 +8,7 @@ async def get_todaybefore():
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://www.ipip5.com/today/api.php", params={"type": "json"}, headers=Headers, timeout=5, verify_ssl=False) as response:
-                RawData = await response.text()
-                RawData = dict(eval(RawData))
+                RawData = await response.json(content_type=None)
                 Today = RawData["today"]
                 Result = RawData["result"][:-1]
                 Data = []

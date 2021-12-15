@@ -9,7 +9,6 @@ config = Config(**global_config.dict())
 groups = list(global_config.group_id)
 nickname = list(global_config.nickname)[0]
 admins = list(global_config.superusers)
-
 scheduler = require("nonebot_plugin_apscheduler").scheduler
 todaybefore = on_command("历史上的今天", rule=to_me(), priority=6, aliases={"历史"})
 
@@ -20,7 +19,7 @@ async def todaybefore_reminder():
     data = await get_todaybefore()
     for i in range(len(groups)):
         msg = f"「{nickname}·历史上的今天·定时」\n\n[CQ:at,qq={admins[i]}]\n{data}"
-        await bot.call_api('send_group_msg', **{'group_id': groups[i], 'message': msg})
+        await bot.call_api('send_group_msg', **{'group_id': groups[i], 'message': Message(msg)})
 
 
 @todaybefore.handle()

@@ -1,7 +1,13 @@
+import time
+import json
 import aiohttp
 import asyncio
 
 Headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"}
+
+
+def get_time():
+    return time.strftime("%m{}%d{} %H:%M:%S").format('月', '日')
 
 
 async def get_weibo(amount: int):
@@ -62,9 +68,8 @@ async def get_cctv(amount: int):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://news.cctv.com/2019/07/gaiban/cmsdatainterface/page/news_1.jsonp", headers=Headers, timeout=5) as response:
                 RawData = await response.text()
-                RawData = RawData.replace("news(", "")
-                RawData = RawData.strip(")")
-                Result = dict(eval(RawData))["data"]["list"]
+                RawData = RawData.strip("news()")
+                Result = json.loads(RawData)["data"]["list"]
                 Data = []
                 for i in range(amount):
                     Data.append(f'{i+1}.{Result[i]["title"]}\n[{Result[i]["brief"]}]\n')
@@ -78,9 +83,8 @@ async def get_cctv_detail(number: int):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://news.cctv.com/2019/07/gaiban/cmsdatainterface/page/news_1.jsonp", headers=Headers, timeout=5) as response:
                 RawData = await response.text()
-                RawData = RawData.replace("news(", "")
-                RawData = RawData.strip(")")
-                Result = dict(eval(RawData))["data"]["list"]
+                RawData = RawData.strip("news()")
+                Result = json.loads(RawData)["data"]["list"]
                 Msg = f'[CQ:share,url={Result[number]["url"]},title={Result[number]["title"]},image={Result[number]["image"]}]'
                 return Msg
     except:

@@ -50,8 +50,6 @@ SeaBot 计划的 QQ 分支
 
 # 部署
 
-目前只做了容器化部署的教程，常规部署请自行研究，比较简单。
-
 ## 容器化部署
 
 使用容器化部署可以让你非常快速地把机器人服务跑起来(一顿操作 调调配置就可以直接用了)。
@@ -61,22 +59,31 @@ CentOS 下安装 docker 和 docker-compose:
 ```shell
 # 一键安装docker
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
 # 查看docker版本
 docker -v
+
 # 设置开机启动
 systemctl enable docker
+
 # 启动
 systemctl start docker
 
+
+
 # 安装docker-compose
 pip3 install docker-compose
+
 # 国内加速
 # sudo curl -L "https://github.com.cnpmjs.org/docker/compose/releases/download/v2.2.2/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+
 # 二进制文件应用可执行权限
 sudo chmod +x /usr/local/bin/docker-compose
+
 # 创建命令软链接
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
 # 查看docker-compose版本
 docker-compose --version
 ```
@@ -101,11 +108,11 @@ cd SeaBot_QQ
 两项配置修改完成后，在 `SeaBot_QQ` 目录下打开终端，执行如下命令。
 
 ```shell
-# 开始自动容器服务编排
+# 容器服务编排
 docker-compose up -d
 ```
 
-等待应用自动部署即可，如有异常，与项目无关，请自行搜索解决方案。
+等待应用自动部署即可。
 
 初次使用时，需要在 `go-cqhttp` 端扫码登录机器人账号，可使用如下命令查看并扫码。
 

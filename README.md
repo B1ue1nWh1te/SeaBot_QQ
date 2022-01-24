@@ -138,8 +138,6 @@ docker logs -f seabot_qq
 
 - [go-cqhttp 官方文档](https://docs.go-cqhttp.org/guide/)
 
-- SeaBot_QQ 使用教程(还没写- -)
-
 # 功能调用示例
 
 声明：消息内容为通过 API 获取的信息，仅做功能展示示例，不代表任何政治立场观点。

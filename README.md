@@ -2,6 +2,8 @@
 
 # SeaBot_QQ
 
+![data](https://socialify.git.ci/B1ue1nWh1te/SeaBot_QQ/image?description=1&font=Rokkitt&forks=1&issues=1&language=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Dark)
+
 SeaBot 计划的 QQ 分支
 
 一个能够获取新闻资讯并推送至 QQ 的群聊机器人
@@ -13,6 +15,8 @@ SeaBot 计划的 QQ 分支
 主体基于 [nonebot2](https://github.com/nonebot/nonebot2) 开发
 
 消息推送基于 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 实现
+
+本项目的另一分支 [SeaBot_WX](https://github.com/B1ue1nWh1te/SeaBot_WX)
 
 [![Lisence](https://img.shields.io/github/license/B1ue1nWh1te/SeaBot_QQ)](https://github.com/B1ue1nWh1te/SeaBot_QQ/blob/main/LICENSE)
 [![Release](https://img.shields.io/github/v/release/B1ue1nWh1te/SeaBot_QQ?include_prereleases)](https://github.com/B1ue1nWh1te/SeaBot_QQ/releases/)
@@ -121,7 +125,7 @@ docker-compose up -d
 docker logs -f go-cqhttp
 
 # 查看seabot_qq容器控制台输出
-docker logs -f go-cqhttp
+docker logs -f seabot_qq
 ```
 
 一切顺利的话，很快就可以用上机器人了。

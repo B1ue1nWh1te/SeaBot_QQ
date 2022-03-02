@@ -8,31 +8,30 @@ from .data_source import get_weather, get_saying
 driver = get_driver()
 global_config = driver.config
 config = Config(**global_config.dict())
-groups = list(global_config.group_id)
+groups = list(global_config.timing_group_id)
 nickname = list(global_config.nickname)[0]
-admins = list(global_config.superusers)
+admin = list(global_config.superusers)[0]
 scheduler = require("nonebot_plugin_apscheduler").scheduler
-clockin = on_command("打卡提醒", permission=SUPERUSER, priority=1)
+clockin = on_command("打卡提醒", permission=SUPERUSER, priority=1, block=True)
 
 
 async def clockin_reminder(content, city):
     bot = get_bot()
     weather = await get_weather(city)
     saying = await get_saying()
-    # 若消息风控，添加[CQ:at,qq={list(global_config.superusers)[0]}]绕过
-    for i in range(len(groups)):
-        msg = f"「{nickname}·打卡提醒·定时」\n\n[CQ:at,qq=all][CQ:at,qq={admins[i]}]\n{content}\n[{city}天气]{weather}\n\n[每日一句]{saying}"
-        await bot.call_api('send_group_msg', **{'group_id': groups[i], 'message': Message(msg)})
+    # 若消息风控，添加[CQ:at,qq={admin}]绕过
+    for i in groups:
+        msg = f"「{nickname}·打卡提醒·定时」\n[CQ:at,qq=all][CQ:at,qq={admin}]\n{content}\n[{city}天气]{weather}\n[每日一句]{saying}"
+        await bot.call_api('send_group_msg', **{'group_id': i, 'message': Message(msg)})
 
 
 @clockin.handle()
 async def clockin_handle(bot: Bot, event: GroupMessageEvent, state: T_State):
-    bot = get_bot()
     content = config.clockin_reminder_contents[-1]
     city = config.weather_city
     weather = await get_weather(city)
     saying = await get_saying()
-    msg = f"「{nickname}·打卡提醒」\n\n[CQ:at,qq={event.get_user_id()}]\n{content}\n[{city}天气]{weather}\n\n[每日一句]{saying}"
+    msg = f"「{nickname}·打卡提醒」\n[CQ:at,qq={event.get_user_id()}]\n{content}\n[{city}天气]{weather}\n[每日一句]{saying}"
     await clockin.finish(Message(msg))
 
 

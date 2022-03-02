@@ -4,7 +4,7 @@ import asyncio
 Headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"}
 
 
-async def get_weather(city: str):
+async def get_weather(city: str) -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://wthrcdn.etouch.cn/weather_mini", params={"city": city}, headers=Headers, timeout=5) as response:
@@ -16,7 +16,7 @@ async def get_weather(city: str):
         return "获取信息失败"
 
 
-async def get_saying():
+async def get_saying() -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://open.iciba.com/dsapi/", headers=Headers, timeout=5) as response:

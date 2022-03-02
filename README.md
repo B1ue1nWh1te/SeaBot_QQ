@@ -38,7 +38,11 @@ SeaBot 计划的 QQ 分支
 
 - [x] [Call 回复](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/chat)(就是机器人昵称被 Call 时进行简单的回复)
 
-- [x] [定时打卡提醒](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/clockin)(emm 学校每天都要体温打卡 超级管理员可主动调用(防风控无法@全体))
+- [x] [定时打卡提醒](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/clockin)(超级管理员可主动调用)
+
+- [x] [力扣每日一题](https://leetcode-cn.com/problemset/all/)
+
+- [x] [Github 仓库信息卡片](https://github.com/)(当机器人接收到一个 Github 仓库链接时 会自动发送信息卡片)
 
 - [x] [知乎热榜推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认仅展示前十条的标题)
 
@@ -50,7 +54,9 @@ SeaBot 计划的 QQ 分支
 
 - [x] [历史上的今天推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/todaybefore)(数据来源本质上是百度的历史上的今天)
 
-- [x] [所有功能均可定时](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins)(推送时间和次数可自行配置)
+- [x] [HNU 电费查询](https://www.hnu.edu.cn/)
+
+- [x] [部分功能可定时](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins)(推送时间和次数可自行配置)
 
 # 部署
 

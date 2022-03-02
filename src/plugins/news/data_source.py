@@ -10,7 +10,7 @@ def get_time():
     return time.strftime("%m{}%d{} %H:%M:%S").format('月', '日')
 
 
-async def get_weibo(amount: int):
+async def get_weibo(amount: int) -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("https://weibo.com/ajax/statuses/hot_band", headers=Headers, timeout=5) as response:
@@ -25,7 +25,7 @@ async def get_weibo(amount: int):
         return "获取信息失败"
 
 
-async def get_weibo_detail(number: int):
+async def get_weibo_detail(number: int) -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("https://weibo.com/ajax/statuses/hot_band", headers=Headers, timeout=5) as response:
@@ -37,7 +37,7 @@ async def get_weibo_detail(number: int):
         return "获取信息失败"
 
 
-async def get_zhihu(amount: int):
+async def get_zhihu(amount: int) -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("https://api.zhihu.com/topstory/hot-list", headers=Headers, timeout=5) as response:
@@ -51,7 +51,7 @@ async def get_zhihu(amount: int):
         return "获取信息失败"
 
 
-async def get_zhihu_detail(number: int):
+async def get_zhihu_detail(number: int) -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("https://api.zhihu.com/topstory/hot-list", headers=Headers, timeout=5) as response:
@@ -63,7 +63,7 @@ async def get_zhihu_detail(number: int):
         return "获取信息失败"
 
 
-async def get_cctv(amount: int):
+async def get_cctv(amount: int) -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("https://news.cctv.com/2019/07/gaiban/cmsdatainterface/page/news_1.jsonp", headers=Headers, timeout=5) as response:
@@ -78,7 +78,7 @@ async def get_cctv(amount: int):
         return "获取信息失败"
 
 
-async def get_cctv_detail(number: int):
+async def get_cctv_detail(number: int) -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("https://news.cctv.com/2019/07/gaiban/cmsdatainterface/page/news_1.jsonp", headers=Headers, timeout=5) as response:
@@ -91,7 +91,7 @@ async def get_cctv_detail(number: int):
         return "获取信息失败"
 
 
-async def get_tonghuashun(amount: int):
+async def get_tonghuashun(amount: int) -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("https://news.10jqka.com.cn/tapp/news/push/stock", headers=Headers, timeout=5) as response:
@@ -105,7 +105,7 @@ async def get_tonghuashun(amount: int):
         return "获取信息失败"
 
 
-async def get_tonghuashun_detail(number: int):
+async def get_tonghuashun_detail(number: int) -> str:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get("https://news.10jqka.com.cn/tapp/news/push/stock", headers=Headers, timeout=5) as response:

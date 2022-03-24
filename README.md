@@ -54,6 +54,10 @@ SeaBot 计划的 QQ 分支
 
 - [x] [历史上的今天推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/todaybefore)(数据来源本质上是百度的历史上的今天)
 
+- [x] [疫情数据推送](https://wp.m.163.com/163/page/news/virus_report/index.html)(数据来源 网易)
+
+- [x] [天气和每日一句](#)
+
 - [x] [HNU 电费查询](https://www.hnu.edu.cn/)
 
 - [x] [部分功能可定时](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins)(推送时间和次数可自行配置)

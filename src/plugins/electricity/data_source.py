@@ -13,26 +13,25 @@ async def get_electricity_fee(park: str, building: str, room: str) -> str:
     try:
         ParkNo = None
         BuildingNo = None
-        async with aiohttp.ClientSession() as session:
-            async with session.get("http://wxpay.hnu.edu.cn/api/appElectricCharge/parkList", headers=Headers, timeout=5) as response:
-                RawData = await response.json()
-                Data = RawData["data"]
-                for i in Data:
-                    if i["Name"] == park:
-                        ParkNo = i["Code"]
-                        break
-                assert(ParkNo != None)
-            async with session.get("http://wxpay.hnu.edu.cn/api/appElectricCharge/buildinglist", params={"parkno": ParkNo}, headers=Headers, timeout=5) as response:
-                RawData = await response.json()
-                Data = RawData["data"]
-                for i in Data:
-                    if i["Name"] == building:
-                        BuildingNo = i["Code"]
-                        break
-                assert(BuildingNo != None)
-            async with session.get("http://wxpay.hnu.edu.cn/api/appElectricCharge/checkRoomNo", params={'parkNo': ParkNo, 'buildingNo': BuildingNo, 'roomNo': room}, headers=Headers, timeout=5) as response:
-                RawData = await response.json()
-                Data = RawData["data"]["Balance"]
-                return Data
+        async with aiohttp.get("http://wxpay.hnu.edu.cn/api/appElectricCharge/parkList", headers=Headers, timeout=5) as response:
+            RawData = await response.json()
+            Data = RawData["data"]
+            for i in Data:
+                if i["Name"] == park:
+                    ParkNo = i["Code"]
+                    break
+            assert(ParkNo != None)
+        async with aiohttp.get("http://wxpay.hnu.edu.cn/api/appElectricCharge/buildinglist", params={"parkno": ParkNo}, headers=Headers, timeout=5) as response:
+            RawData = await response.json()
+            Data = RawData["data"]
+            for i in Data:
+                if i["Name"] == building:
+                    BuildingNo = i["Code"]
+                    break
+            assert(BuildingNo != None)
+        async with aiohttp.get("http://wxpay.hnu.edu.cn/api/appElectricCharge/checkRoomNo", params={'parkNo': ParkNo, 'buildingNo': BuildingNo, 'roomNo': room}, headers=Headers, timeout=5) as response:
+            RawData = await response.json()
+            Data = RawData["data"]["Balance"]
+            return Data
     except:
         return "获取信息失败"

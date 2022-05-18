@@ -1,28 +1,3 @@
-[tool.poetry]
-name = "SeaBot_QQ"
-version = "1.0.0"
-description = "News Bot for QQ"
-authors = ["B1ue1nWh1te <1806972095@qq.com>"]
-license = "GPL-3.0"
-readme = "README.md"
-repository = "https://github.com/B1ue1nWh1te/SeaBot_QQ"
-
-[tool.poetry.dependencies]
-python = "^3.7"
-nonebot2 = "^2.0.0.a15"
-nonebot-adapter-cqhttp="^2.0.0a15"
-nonebot-plugin-apscheduler = "^0.1.2"
-nb-cli = "^0.5.0"
-aiohttp = "^3.7.4.post0"
-pydantic = "^1.8.2"
-
-[tool.poetry.dev-dependencies]
-nonebot-test = "^0.1.0"
-
 [nonebot.plugins]
 plugins = []
 plugin_dirs = ["src/plugins"]
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"

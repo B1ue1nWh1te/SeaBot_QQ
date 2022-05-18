@@ -8,10 +8,6 @@ SeaBot 计划的 QQ 分支
 
 一个能够获取新闻资讯并推送至 QQ 的群聊机器人
 
-目前支持的信息来源有：
-
-[知乎](https://www.zhihu.com/)、[微博](https://weibo.com/)、[央视新闻](https://news.cctv.com/)、[同花顺快讯](https://news.10jqka.com.cn/realtimenews.html)、[历史上的今天](https://baike.baidu.com/calendar/)
-
 主体基于 [nonebot2](https://github.com/nonebot/nonebot2) 开发
 
 消息推送基于 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 实现
@@ -28,9 +24,7 @@ SeaBot 计划的 QQ 分支
 
 # 声明
 
-项目由 [B1ue1nWh1te](https://github.com/B1ue1nWh1te) 独立完成，若有不足的地方还请指教。
-
-项目会保留最基本的维护(功能也许会更新吧，由于只在自己的班群里使用，所以目前实现的也没有太花里胡哨- -)。
+项目会保留最基本的维护(功能也许会更新吧，由于只在自己的班群里使用，所以目前实现的也没有太花里胡哨- -)，若有不足的地方还请指教。
 
 此项目仅可在合理情况下作为学习交流和个人日常使用。
 
@@ -158,10 +152,6 @@ docker logs -f seabot_qq
 
   - ![示例1](example/call.jpg)
 
-- 打卡提醒 | `千机-打卡提醒`
-
-  - ![示例2](example/clockin.jpg)
-
 - 知乎热榜 | `千机-知乎`
 
   - 若在一定时间内回复 `详情-1` 机器人会分享对应的链接
@@ -174,7 +164,7 @@ docker logs -f seabot_qq
 
   - ![示例5](example/weibo.jpg)
 
-* 央视新闻 | `千机-新闻`
+* 央视新闻 | `千机-央视新闻`
 
   - ![示例6](example/news.jpg)
 
@@ -182,9 +172,17 @@ docker logs -f seabot_qq
 
   - ![示例7](example/tonghuashun.jpg)
 
+* Github 仓库摘要 | `直接发送仓库链接到群内即可`
+
+* 力扣每日一题 | `千机-力扣`
+
 * 历史上的今天 | `千机-历史`
 
-  - ![示例8](example/todaybefore.jpg)
+* 疫情数据查询 | `千机-疫情数据 省份-城市`
+
+* 打卡提醒 | `千机-打卡提醒`
+
+* HNU 电费查询(似乎不太灵) | `千机-电费查询 园区-楼栋-房号`
 
 # 开源许可
 

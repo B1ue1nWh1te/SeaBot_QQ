@@ -1,12 +1,9 @@
 from nonebot.rule import T_State
-from nonebot import on_message, get_driver
+from nonebot import on_message
 from nonebot.adapters.cqhttp import Bot, GroupMessageEvent, Message
-import re
-from .config import Config
 from .data_source import get_github_reposity_information
+import re
 
-global_config = get_driver().config
-config = Config(**global_config.dict())
 github = on_message(priority=10)
 
 

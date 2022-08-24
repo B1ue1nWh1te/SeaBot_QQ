@@ -1,3 +1,0 @@
-[nonebot.plugins]
-plugins = []
-plugin_dirs = ["src/plugins"]

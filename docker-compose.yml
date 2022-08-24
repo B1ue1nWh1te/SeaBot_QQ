@@ -1,13 +1,13 @@
 version: "3"
 services:
-  nonebot:
+  nonebot2:
     build: .
     restart: always
-    container_name: seabot_qq
+    container_name: seabot
     volumes:
-      - "./:/seabot_qq/"
+      - "./:/seabot/"
     ports:
-      - "1001:8080" # 映射端口到宿主机 宿主机端口:容器端口
+      - "8080:8080" # 映射端口到宿主机 宿主机端口:容器端口
     env_file:
       - ".env.prod" # fastapi 使用的环境变量文件
     environment:
@@ -21,9 +21,7 @@ services:
     container_name: go-cqhttp
     restart: always
     depends_on:
-      - nonebot
-    ports:
-      - "1002:8080"
+      - nonebot2
     volumes:
       - ./go-cqhttp:/data
     environment:

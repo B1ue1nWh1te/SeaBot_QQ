@@ -1,14 +1,12 @@
-# go-cqhttp 默认配置文件
-
 account: # 账号相关
-  uin: 00000 # QQ账号
+  uin: 00000 # 机器人QQ号
   password: "" # 密码为空时使用扫码登录
   encrypt: false # 是否开启密码加密
   status: 0 # 在线状态 请参考 https://docs.go-cqhttp.org/guide/config.html#在线状态
   relogin: # 重连设置
-    delay: 3 # 首次重连延迟, 单位秒
-    interval: 3 # 重连间隔
-    max-times: 0 # 最大重连次数, 0为无限制
+    delay: 5 # 首次重连延迟, 单位秒
+    interval: 15 # 重连间隔
+    max-times: 20 # 最大重连次数, 0为无限制
 
   # 是否使用服务器下发的新地址进行重连
   # 注意, 此设置可能导致在海外服务器上连接情况更差
@@ -46,7 +44,7 @@ output:
   # 日志等级 trace,debug,info,warn,error
   log-level: warn
   # 日志时效 单位天. 超过这个时间之前的日志将会被自动删除. 设置为 0 表示永久保留.
-  log-aging: 0
+  log-aging: 15
   # 是否在每次启动时强制创建全新的文件储存日志. 为 false 的情况下将会在上次启动时创建的日志文件续写
   log-force-new: false
   # 是否启用日志颜色
@@ -93,7 +91,7 @@ servers:
       # 这里不建议改
       # 反向WS Universal 地址
       # 注意 设置了此项地址后下面两项将会被忽略
-      universal: ws://nonebot:8080/cqhttp/ws
+      universal: ws://nonebot2:8080/cqhttp/ws
       # 反向WS API 地址
       api: ws://your_websocket_api.server
       # 反向WS Event 地址

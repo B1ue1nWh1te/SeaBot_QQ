@@ -1,6 +1,6 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
-WORKDIR /seabot_qq
+WORKDIR /seabot
 
 COPY ./requirements.txt .
 

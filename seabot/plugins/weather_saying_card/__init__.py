@@ -6,7 +6,6 @@ from .data_source import get_weather, get_saying
 driver = get_driver()
 global_config = driver.config
 config = Config(**global_config.dict())
-groups = list(global_config.timing_group_id)
 nickname = list(global_config.nickname)[0]
 admin = list(global_config.superusers)[0]
 scheduler = require("nonebot_plugin_apscheduler").scheduler
@@ -16,11 +15,16 @@ async def card_reminder(city):
     bot = get_bot()
     weather = await get_weather(city)
     saying = await get_saying()
-    for i in groups:
-        msg = f"「{nickname}·天气与句子」\n[CQ:at,qq={admin}]\n\n[{city}天气]{weather}\n[每日一句]{saying}"
+    for i in config.card_reminder_groups:
+        msg = f"「{nickname}·天气丨一言」\n\n[{city}天气]{weather}\n[一言]{saying}"
         await bot.call_api('send_group_msg', **{'group_id': i, 'message': Message(msg)})
 
 
 @driver.on_startup
 async def _():
-    scheduler.add_job(card_reminder, 'cron', hour=config.card_reminder_time_hours, minute=config.card_reminder_time_minutes, id="card_reminder", args=[config.card_weather_city])
+    if config.card_reminder_start:
+        for i in range(len(config.card_reminder_time)):
+            temp = config.card_reminder_time[i].split(":")
+            hour = int(temp[0])
+            minute = int(temp[1])
+            scheduler.add_job(card_reminder, 'cron', hour=hour, minute=minute, id=f"card_reminder_{i}", args=[config.card_weather_city])

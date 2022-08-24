@@ -4,63 +4,51 @@
 
 ![data](https://socialify.git.ci/B1ue1nWh1te/SeaBot_QQ/image?description=1&font=Rokkitt&forks=1&issues=1&language=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Dark)
 
-SeaBot 计划的 QQ 分支
-
-一个能够获取新闻资讯并推送至 QQ 的群聊机器人
-
-主体基于 [nonebot2](https://github.com/nonebot/nonebot2) 开发
-
-消息推送基于 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 实现
-
-本项目的另一分支 [SeaBot_WX](https://github.com/B1ue1nWh1te/SeaBot_WX)
+SeaBot_QQ 是一个面向新闻资讯方向的 QQ 群聊机器人，同时包含其他一些实用的小功能
 
 [![Lisence](https://img.shields.io/github/license/B1ue1nWh1te/SeaBot_QQ)](https://github.com/B1ue1nWh1te/SeaBot_QQ/blob/main/LICENSE)
 [![Release](https://img.shields.io/github/v/release/B1ue1nWh1te/SeaBot_QQ?include_prereleases)](https://github.com/B1ue1nWh1te/SeaBot_QQ/releases/)
 [![Python Version](https://img.shields.io/badge/python-3.7+-blue)](https://www.python.org/)
-[![NoneBot Version](https://img.shields.io/badge/nonebot2-red)](https://github.com/nonebot/nonebot2)
-[![go-cqhttp Version](https://img.shields.io/badge/gocqhttp-purple)](https://github.com/Mrs4s/go-cqhttp)
+[![NoneBot2](https://img.shields.io/badge/nonebot2-red)](https://github.com/nonebot/nonebot2)
+[![go-cqhttp](https://img.shields.io/badge/gocqhttp-purple)](https://github.com/Mrs4s/go-cqhttp)
 
 </div>
 
-# 声明
+# 前言
 
-项目会保留最基本的维护(功能也许会更新吧，由于只在自己的班群里使用，所以目前实现的也没有太花里胡哨- -)，若有不足的地方还请指教。
+项目会保持基本的维护，由于只在自己的班群里使用，所以实现的功能没有花里胡哨，若有不足的地方还请指教。
 
-此项目仅可在合理情况下作为学习交流和个人日常使用。
+此项目作为学习交流和个人日常使用。
 
-# 已实现功能
+# 功能列表
 
-- [x] [Call 回复](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/chat)(就是机器人昵称被 Call 时进行简单的回复)
+- [x] [基础回复](seabot/plugins/basic_reply)(就是机器人昵称被 Call 时进行简单的回复)
 
-- [x] [定时打卡提醒](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/clockin)(超级管理员可主动调用)
+- [x] [定时打卡提醒](seabot/plugins/clockin_reminder)(就是健康打卡的提醒，为避免风控吞消息，机器人管理员可主动调用)
 
-- [x] [力扣每日一题](https://leetcode-cn.com/problemset/all/)
+- [x] [疫情数据查询](seabot/plugins/epidemic_data_query)(数据来源 网易)
 
-- [x] [Github 仓库信息卡片](https://github.com/)(当机器人接收到一个 Github 仓库链接时 会自动发送信息卡片)
+- [x] [Leetcode 每日一题](seabot/plugins/leetcode_everyday)(数据来源 Leetcode)
 
-- [x] [知乎热榜推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认仅展示前十条的标题)
+- [x] [Github 仓库摘要图](seabot/plugins/github_reposity_thumbnail)(数据来源 Github)
 
-- [x] [微博热搜推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认仅展示前十条的标题)
+- [x] [知乎热榜](seabot/plugins/hot_news)(数据来源 知乎)
 
-- [x] [央视新闻推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认展示前五条的标题及详情内容)
+- [x] [微博热搜](seabot/plugins/hot_news)(数据来源 微博)
 
-- [x] [同花顺快讯推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/news)(默认展示前五条的标题及详情内容)
+- [x] [央视要闻](seabot/plugins/hot_news)(数据来源 央视新闻)
 
-- [x] [历史上的今天推送](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins/todaybefore)(数据来源本质上是百度的历史上的今天)
+- [x] [同花顺快讯](seabot/plugins/hot_news)(数据来源 同花顺)
 
-- [x] [疫情数据推送](https://wp.m.163.com/163/page/news/virus_report/index.html)(数据来源 网易)
+- [x] [历史上的今天](seabot/plugins/today_in_history)(数据来源 百度)
 
-- [x] [天气和每日一句](#)
+- [x] [天气丨一言](seabot/plugins/weather_saying_card)(数据来源 不明..)
 
-- [x] [HNU 电费查询](https://www.hnu.edu.cn/)
-
-- [x] [部分功能可定时](https://github.com/B1ue1nWh1te/SeaBot_QQ/tree/main/src/plugins)(推送时间和次数可自行配置)
-
-# 部署
+# 部署方法
 
 ## 容器化部署
 
-使用容器化部署可以让你非常快速地把机器人服务跑起来(一顿操作 调调配置就可以直接用了)。
+最简便且有效的部署方式，自己只需要调下软件配置就可以把机器人跑起来了。
 
 CentOS 下安装 docker 和 docker-compose:
 
@@ -81,9 +69,6 @@ systemctl start docker
 
 # 安装docker-compose
 pip3 install docker-compose
-
-# 国内加速
-# sudo curl -L "https://github.com.cnpmjs.org/docker/compose/releases/download/v2.2.2/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
 
 # 二进制文件应用可执行权限
@@ -96,33 +81,32 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose --version
 ```
 
-假设你已经在 Linux 上安装并配置好了 docker 和 docker-compose。
+在 Linux 上安装好 docker 和 docker-compose 之后：
 
 ```shell
 # 克隆本仓库
-# 国内加速 git clone https://github.com.cnpmjs.org/B1ue1nWh1te/SeaBot_QQ
 git clone https://github.com/B1ue1nWh1te/SeaBot_QQ
 
 # 切换至仓库目录
 cd SeaBot_QQ
 ```
 
-修改`src/plugins`中各功能插件的`config.py`配置。
+按自己的需求修改`seabot/plugins`中各个功能插件的`config.py`中的配置参数（有注释指导）。
 
 之后修改 `./go-cqhttp` 中的 `config.yml` 配置文件，一般情况下，在 `account-uin` 字段中填写机器人的 QQ 号，其他保持默认即可。
 
-然后修改 `./` 中的 `.env.prod` 配置文件，一般情况下，修改 `NICKNAME`、`SUPERUSERS`、`GROUP_ID`, 其他保持默认即可。
+然后修改 `./` 中的 `.env.prod` 配置文件，一般情况下，修改 `NICKNAME`、`SUPERUSERS`, 其他保持默认即可。
 
-两项配置修改完成后，在 `SeaBot_QQ` 目录下打开终端，执行如下命令。
+配置修改完成后，在 `SeaBot_QQ` 目录下打开终端，执行如下命令启动容器服务。
 
 ```shell
-# 容器服务编排
+# 启动容器服务
 docker-compose up -d
 ```
 
 等待应用自动部署即可。
 
-初次使用时，需要在 `go-cqhttp` 端扫码登录机器人账号，可使用如下命令查看并扫码。
+初次使用时，需要在 `go-cqhttp` 端扫码登录机器人账号，可使用如下命令查看日志输出并扫码登录（如果提示异地无法登录则需先在电脑本地运行`go-cqhttp`客户端，扫码登录成功后，将`device.json`和`session.token`文件上传至服务器的`SeaBot_QQ/go-cqhttp`目录）。
 
 ```shell
 # 查看go-cqhttp容器控制台输出
@@ -136,7 +120,7 @@ docker logs -f seabot_qq
 
 # 文档
 
-以下文档可以参考。
+如果在使用过程中遇到问题可以提 issue，或者自行查阅以下官方文档。
 
 - [nonebot2 官方文档](https://v2.nonebot.dev/guide/)
 
@@ -144,45 +128,60 @@ docker logs -f seabot_qq
 
 # 功能调用示例
 
-声明：消息内容为通过 API 获取的信息，仅做功能展示示例，不代表任何政治立场观点。
+图片中的内容是通过 API 获取的信息，仅作功能展示示例。
 
 我们假设机器人昵称为 `千机` 。
 
-- Call 回复 | `千机`
+> 基础回复 | `千机`
+> ![基础回复示例](example/basic_reply.jpg)
 
-  - ![示例1](example/call.jpg)
+<br>
 
-- 知乎热榜 | `千机-知乎`
+> 打卡提醒 | `千机-打卡提醒`
+> ![打卡提醒示例](example/clockin_reminder.jpg)
 
-  - 若在一定时间内回复 `详情-1` 机器人会分享对应的链接
-  - 或 `千机-知乎 1,2` 这样就会直接分享对应的链接
+<br>
 
-  - ![示例3](example/zhihu1.jpg)
-  - ![示例4](example/zhihu2.jpg)
+> Github 仓库摘要 | `直接发送仓库链接到群内即可`
+> ![Github 仓库摘要](example/github_reposity_thumbnail.jpg)
 
-- 微博热搜 | `千机-微博`
+<br>
 
-  - ![示例5](example/weibo.jpg)
+> 知乎热榜 | `千机-知乎`
+> ![知乎热榜示例1](example/zhihu1.jpg)
+> ![知乎热榜示例2](example/zhihu2.jpg)
 
-* 央视新闻 | `千机-央视新闻`
+<br>
 
-  - ![示例6](example/news.jpg)
+> 微博热搜 | `千机-微博`
+> ![微博热搜示例](example/weibo.jpg)
 
-* 同花顺快讯 | `千机-同花顺`
+<br>
 
-  - ![示例7](example/tonghuashun.jpg)
+> 央视要闻 | `千机-新闻`
+> ![央视要闻示例](example/cctvnews.jpg)
 
-* Github 仓库摘要 | `直接发送仓库链接到群内即可`
+<br>
 
-* 力扣每日一题 | `千机-力扣`
+> 同花顺快讯 | `千机-同花顺快讯`
+> ![同花顺快讯示例](example/tonghuashun.jpg)
 
-* 历史上的今天 | `千机-历史`
+<br>
 
-* 疫情数据查询 | `千机-疫情数据 省份-城市`
+> 力扣每日一题 | `千机-每日算法`
+> ![力扣每日一题示例](example/leetcode_everyday.jpg)
 
-* 打卡提醒 | `千机-打卡提醒`
+<br>
 
-* HNU 电费查询(似乎不太灵) | `千机-电费查询 园区-楼栋-房号`
+> 天气丨一言 | `仅支持定时推送`
+
+<br>
+
+> 疫情数据查询 | `千机-疫情数据 省份-城市`
+
+<br>
+
+> 历史上的今天 | `千机-历史`
 
 # 开源许可
 

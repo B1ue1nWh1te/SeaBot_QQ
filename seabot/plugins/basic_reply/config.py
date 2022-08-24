@@ -2,9 +2,8 @@ from pydantic import BaseSettings
 
 
 class Config(BaseSettings):
-
-    reminder_time_hour: str = "7"
-    reminder_time_minute: str = "59"
+    # 随机回复内容
+    reply_contents: list = ["?", "怎么说", "[CQ:face,id=277]"]
 
     class Config:
         extra = "ignore"

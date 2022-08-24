@@ -120,7 +120,7 @@ docker logs -f seabot_qq
 
 # 文档
 
-如果在使用过程中遇到问题可以提 issue，或者自行查阅以下官方文档。
+如果在使用过程中遇到问题可以提`issue`，或者自行查阅以下官方文档。
 
 - [nonebot2 官方文档](https://v2.nonebot.dev/guide/)
 
@@ -133,43 +133,52 @@ docker logs -f seabot_qq
 我们假设机器人昵称为 `千机` 。
 
 > 基础回复 | `千机`
-> ![基础回复示例](example/basic_reply.jpg)
+
+![基础回复示例](example/basic_reply.jpg)
 
 <br>
 
 > 打卡提醒 | `千机-打卡提醒`
-> ![打卡提醒示例](example/clockin_reminder.jpg)
+
+![打卡提醒示例](example/clockin_reminder.jpg)
 
 <br>
 
 > Github 仓库摘要 | `直接发送仓库链接到群内即可`
-> ![Github 仓库摘要](example/github_reposity_thumbnail.jpg)
+
+![Github 仓库摘要](example/github_reposity_thumbnail.jpg)
 
 <br>
 
 > 知乎热榜 | `千机-知乎`
-> ![知乎热榜示例1](example/zhihu1.jpg)
-> ![知乎热榜示例2](example/zhihu2.jpg)
+
+![知乎热榜示例1](example/zhihu1.jpg)
+
+![知乎热榜示例2](example/zhihu2.jpg)
 
 <br>
 
 > 微博热搜 | `千机-微博`
-> ![微博热搜示例](example/weibo.jpg)
+
+![微博热搜示例](example/weibo.jpg)
 
 <br>
 
 > 央视要闻 | `千机-新闻`
-> ![央视要闻示例](example/cctvnews.jpg)
+
+![央视要闻示例](example/cctvnews.jpg)
 
 <br>
 
 > 同花顺快讯 | `千机-同花顺快讯`
-> ![同花顺快讯示例](example/tonghuashun.jpg)
+
+![同花顺快讯示例](example/tonghuashun.jpg)
 
 <br>
 
 > 力扣每日一题 | `千机-每日算法`
-> ![力扣每日一题示例](example/leetcode_everyday.jpg)
+
+![力扣每日一题示例](example/leetcode_everyday.jpg)
 
 <br>
 

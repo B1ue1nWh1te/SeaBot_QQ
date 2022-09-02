@@ -11,6 +11,7 @@ SeaBot_QQ 是一个面向新闻资讯方向的 QQ 群聊机器人，同时包含
 [![Python Version](https://img.shields.io/badge/python-3.7+-blue)](https://www.python.org/)
 [![NoneBot2](https://img.shields.io/badge/nonebot2-red)](https://github.com/nonebot/nonebot2)
 [![go-cqhttp](https://img.shields.io/badge/gocqhttp-purple)](https://github.com/Mrs4s/go-cqhttp)
+[![Visitors](https://visitor-badge.glitch.me/badge?page_id=B1ue1nWh1te-SeaBot_QQ&left_color=gray&right_color=orange)](https://github.com/B1ue1nWh1te/SeaBot_QQ)
 
 </div>
 
@@ -183,6 +184,8 @@ docker logs -f seabot_qq
 <br>
 
 > 天气丨一言 | `仅支持定时推送`
+
+![一言示例](example/yiyan.jpg)
 
 <br>
 

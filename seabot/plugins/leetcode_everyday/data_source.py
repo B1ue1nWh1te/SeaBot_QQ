@@ -9,6 +9,7 @@ Headers = {
 
 
 async def get_leetcode_daily() -> dict:
+    from html import unescape
     try:
         async with aiohttp.ClientSession() as session:
             async with session.post("https://leetcode-cn.com/graphql", json={"operationName": "questionOfToday", "variables": {}, "query": "query questionOfToday { todayRecord {   question {     questionFrontendId     questionTitleSlug     __typename   }   lastSubmission {     id     __typename   }   date   userStatus   __typename }}"}, headers=Headers, timeout=5) as response:
@@ -21,7 +22,8 @@ async def get_leetcode_daily() -> dict:
                 ID = Data["questionFrontendId"]
                 Difficulty = Data["difficulty"]
                 ChineseTitle = Data["translatedTitle"]
-                Content = re.sub(r"(<\w+>|</\w+>)", "", Data["translatedContent"]).replace("&nbsp;", "").replace("&lt;", "<").replace("\t", "").replace("\n\n", "\n").replace("\n\n", "\n")
+                Content = unescape(Data["translatedContent"])
+                Content = re.sub(r"(<\w+>|</\w+>)", "", Content).replace("\t", "").replace("\n\n", "\n").replace("\n\n", "\n")
                 Data = {"id": ID, "title": ChineseTitle, "difficulty": Difficulty, "content": Content, "url": QuestionUrl}
                 return Data
     except:

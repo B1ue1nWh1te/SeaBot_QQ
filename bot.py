@@ -1,14 +1,10 @@
 import nonebot
-from nonebot.adapters.cqhttp import Bot as CQHTTPBot
+from nonebot.adapters.onebot.v11 import Adapter as ONEBOT_V11Adapter
 
 nonebot.init()
-nonebot.init(apscheduler_autostart=True)
-nonebot.init(apscheduler_config={
-    "apscheduler.timezone": "Asia/Shanghai"
-})
 app = nonebot.get_asgi()
 driver = nonebot.get_driver()
-driver.register_adapter("cqhttp", CQHTTPBot)
+driver.register_adapter(ONEBOT_V11Adapter)
 nonebot.load_builtin_plugins()
 nonebot.load_from_json("plugins.json")
 

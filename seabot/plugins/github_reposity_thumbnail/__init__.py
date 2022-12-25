@@ -1,10 +1,10 @@
 from nonebot.rule import T_State
 from nonebot import on_message
-from nonebot.adapters.cqhttp import Bot, GroupMessageEvent, Message
+from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent, Message
 from .data_source import get_github_reposity_information
 import re
 
-github = on_message(priority=10)
+github = on_message(priority=10, block=True)
 
 
 @github.handle()

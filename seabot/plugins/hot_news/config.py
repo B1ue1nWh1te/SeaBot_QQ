@@ -3,7 +3,7 @@ from pydantic import BaseSettings
 
 class Config(BaseSettings):
     # 微博热搜 定时提醒开关
-    weibo_reminder_start: bool = True
+    weibo_reminder_start: bool = False
 
     # 微博热搜 定时提醒推送的群号
     weibo_reminder_groups: list = [""]
@@ -13,7 +13,7 @@ class Config(BaseSettings):
     weibo_reminder_time: list = ["8:00"]
 
     # 知乎热榜 定时提醒开关
-    zhihu_reminder_start: bool = True
+    zhihu_reminder_start: bool = False
 
     # 知乎热榜 定时提醒推送的群号
     zhihu_reminder_groups: list = [""]
@@ -23,7 +23,7 @@ class Config(BaseSettings):
     zhihu_reminder_time: list = ["8:00"]
 
     # 央视要闻 定时提醒开关
-    cctv_reminder_start: bool = True
+    cctv_reminder_start: bool = False
 
     # 央视要闻 定时提醒推送的群号
     cctv_reminder_groups: list = [""]
@@ -33,7 +33,7 @@ class Config(BaseSettings):
     cctv_reminder_time: list = ["8:00"]
 
     # 同花顺快讯 定时提醒开关
-    tonghuashun_reminder_start: bool = True
+    tonghuashun_reminder_start: bool = False
 
     # 同花顺快讯 定时提醒推送的群号
     tonghuashun_reminder_groups: list = [""]

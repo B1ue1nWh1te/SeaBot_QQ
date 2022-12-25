@@ -1,13 +1,8 @@
 {
     "plugins": [
-        "seabot.plugins.basic_reply",
-        "seabot.plugins.clockin_reminder",
-        "seabot.plugins.epidemic_data_query",
-        "seabot.plugins.github_reposity_thumbnail",
-        "seabot.plugins.hot_news",
-        "seabot.plugins.leetcode_everyday",
-        "seabot.plugins.today_in_history",
-        "seabot.plugins.weather_saying_card"
+        "nonebot_plugin_apscheduler",
+        "nonebot_plugin_htmlrender",
+        "nonebot_plugin_chatgpt"
     ],
     "plugin_dirs": [
         "seabot/plugins"

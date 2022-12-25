@@ -11,7 +11,7 @@ async def get_github_reposity_information(url: str) -> str:
             async with session.get(f"https://api.github.com/users/{UserName}", headers=Headers, timeout=5) as response:
                 RawData = await response.json()
                 AvatarUrl = RawData["avatar_url"]
-                ImageUrl = f"https://image.thum.io/get/width/640/crop/320/viewportWidth/640/png/noanimate/https://socialify.git.ci/{UserName}/{RepoName}/image?description=1&font=Rokkitt&forks=1&issues=1&language=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark&logo={AvatarUrl}"
+                ImageUrl = f"https://image.thum.io/get/width/1280/crop/640/viewportWidth/1280/png/noanimate/https://socialify.git.ci/{UserName}/{RepoName}/image?description=1&font=Rokkitt&forks=1&issues=1&language=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark&logo={AvatarUrl}"
                 return ImageUrl
     except:
         return "获取信息失败"

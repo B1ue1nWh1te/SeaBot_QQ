@@ -3,7 +3,7 @@ from pydantic import BaseSettings
 
 class Config(BaseSettings):
     # 定时提醒开关
-    leetcode_reminder_start: bool = True
+    leetcode_reminder_start: bool = False
 
     # 定时提醒推送的群号
     leetcode_reminder_groups: list = [""]

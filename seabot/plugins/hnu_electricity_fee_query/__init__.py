@@ -1,18 +1,16 @@
 from nonebot.rule import T_State, to_me
 from nonebot import on_command, get_driver
-from nonebot.adapters.cqhttp import Bot, GroupMessageEvent, Message
-from .config import Config
+from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent, Message
 from .data_source import get_electricity_fee
 
 global_config = get_driver().config
-config = Config(**global_config.dict())
 nickname = list(global_config.nickname)[0]
-electricity = on_command("电费查询", rule=to_me(), priority=6, aliases={"电费"}, block=True)
+electricity = on_command("电费查询", rule=to_me(), priority=8, aliases={"电费"}, block=True)
 
 
 @electricity.handle()
 async def electricity_handle(bot: Bot, event: GroupMessageEvent, state: T_State):
-    args = event.get_plaintext()
+    args = event.get_plaintext().split(" ")[-1]
     state["info"] = args.split("-")
     assert(len(state["info"]) == 3)
     balance = await get_electricity_fee(state["info"][0], state["info"][1], state["info"][2])

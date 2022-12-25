@@ -23,27 +23,15 @@ SeaBot_QQ 是一个面向新闻资讯方向的 QQ 群聊机器人，同时包含
 
 # 功能列表
 
-- [x] [基础回复](seabot/plugins/basic_reply)(就是机器人昵称被 Call 时进行简单的回复)
-
-- [x] [定时打卡提醒](seabot/plugins/clockin_reminder)(就是健康打卡的提醒，为避免风控吞消息，机器人管理员可主动调用)
-
-- [x] [疫情数据查询](seabot/plugins/epidemic_data_query)(数据来源 网易)
-
+- [x] [ChatGPT 回复](https://github.com/A-kirami/nonebot-plugin-chatgpt)(调用 ChatGPT 接口对接收到的消息进行回复 详情参考插件[nonebot-plugin-chatgpt](https://github.com/A-kirami/nonebot-plugin-chatgpt)说明)
+- [x] [定时提醒](seabot/plugins/timing_reminder)
+- [x] [一言](seabot/plugins/yiyan)
 - [x] [Leetcode 每日一题](seabot/plugins/leetcode_everyday)(数据来源 Leetcode)
-
 - [x] [Github 仓库摘要图](seabot/plugins/github_reposity_thumbnail)(数据来源 Github)
-
 - [x] [知乎热榜](seabot/plugins/hot_news)(数据来源 知乎)
-
 - [x] [微博热搜](seabot/plugins/hot_news)(数据来源 微博)
-
 - [x] [央视要闻](seabot/plugins/hot_news)(数据来源 央视新闻)
-
 - [x] [同花顺快讯](seabot/plugins/hot_news)(数据来源 同花顺)
-
-- [x] [历史上的今天](seabot/plugins/today_in_history)(数据来源 百度)
-
-- [x] [天气丨一言](seabot/plugins/weather_saying_card)(数据来源 不明..)
 
 # 部署方法
 
@@ -96,7 +84,7 @@ cd SeaBot_QQ
 
 之后修改 `./go-cqhttp` 中的 `config.yml` 配置文件，一般情况下，在 `account-uin` 字段中填写机器人的 QQ 号，其他保持默认即可。
 
-然后修改 `./` 中的 `.env.prod` 配置文件，一般情况下，修改 `NICKNAME`、`SUPERUSERS`, 其他保持默认即可。
+然后修改 `./` 中的 `.env.prod` 配置文件。
 
 配置修改完成后，在 `SeaBot_QQ` 目录下打开终端，执行如下命令启动容器服务。
 
@@ -133,15 +121,15 @@ docker logs -f seabot_qq
 
 我们假设机器人昵称为 `千机` 。
 
-> 基础回复 | `千机`
+> ChatGPT 回复 | `千机-ChatGPT <输入内容>`
 
-![基础回复示例](example/basic_reply.jpg)
+![ChatGPT 回复示例](example/chatgpt.jpg)
 
 <br>
 
-> 打卡提醒 | `千机-打卡提醒`
+> 一言 | `千机-一言`
 
-![打卡提醒示例](example/clockin_reminder.jpg)
+![一言示例](example/yiyan.jpg)
 
 <br>
 
@@ -153,9 +141,7 @@ docker logs -f seabot_qq
 
 > 知乎热榜 | `千机-知乎`
 
-![知乎热榜示例1](example/zhihu1.jpg)
-
-![知乎热榜示例2](example/zhihu2.jpg)
+![知乎热榜示例1](example/zhihu.jpg)
 
 <br>
 
@@ -182,18 +168,6 @@ docker logs -f seabot_qq
 ![力扣每日一题示例](example/leetcode_everyday.jpg)
 
 <br>
-
-> 天气丨一言 | `仅支持定时推送`
-
-![一言示例](example/yiyan.jpg)
-
-<br>
-
-> 疫情数据查询 | `千机-疫情数据 省份-城市`
-
-<br>
-
-> 历史上的今天 | `千机-历史`
 
 # 开源许可
 

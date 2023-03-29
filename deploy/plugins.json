@@ -1,0 +1,8 @@
+{
+    "plugin_dirs": [
+        "seabot/plugins"
+    ],
+    "plugins": [
+        "nonebot_plugin_apscheduler"
+    ]
+}

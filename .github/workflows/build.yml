@@ -30,7 +30,7 @@ jobs:
         id: metadata
         with:
           images: |
-            B1ue1nWh1te/SeaBot_QQ
+            b1ue1nwh1te/seabot_qq
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}

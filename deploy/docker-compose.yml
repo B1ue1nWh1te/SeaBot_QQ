@@ -1,0 +1,29 @@
+version: "3.6"
+services:
+  nonebot2:
+    container_name: seabot
+    image: b1ue1nwh1te/seabot_qq:latest
+    volumes:
+      - ./:/seabot/
+    ports:
+      - "20000:20000"
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Shanghai
+      - APP_MODULE=bot:app
+      - MAX_WORKERS=1
+
+  go-cqhttp:
+    container_name: go-cqhttp
+    image: silicer/go-cqhttp:latest
+    volumes:
+      - ./go-cqhttp:/data
+    restart: unless-stopped
+    links:
+      - nonebot2
+    depends_on:
+      - nonebot2
+    environment:
+      - TZ=Asia/Shanghai

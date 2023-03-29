@@ -1,10 +1,8 @@
 {
-    "plugins": [
-        "nonebot_plugin_apscheduler",
-        "nonebot_plugin_htmlrender",
-        "nonebot_plugin_chatgpt"
-    ],
     "plugin_dirs": [
         "seabot/plugins"
+    ],
+    "plugins": [
+        "nonebot_plugin_apscheduler"
     ]
 }

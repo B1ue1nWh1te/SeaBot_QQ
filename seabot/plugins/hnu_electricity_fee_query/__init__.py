@@ -1,5 +1,5 @@
-from nonebot.rule import T_State, to_me
 from nonebot import on_command, get_driver
+from nonebot.rule import T_State, to_me
 from nonebot.adapters.onebot.v11 import Bot, GroupMessageEvent, Message
 from .data_source import get_electricity_fee
 
@@ -10,14 +10,13 @@ electricity = on_command("电费查询", rule=to_me(), priority=8, aliases={"电
 
 @electricity.handle()
 async def electricity_handle(bot: Bot, event: GroupMessageEvent, state: T_State):
-    args = event.get_plaintext().split(" ")[-1]
-    state["info"] = args.split("-")
-    assert(len(state["info"]) == 3)
-    balance = await get_electricity_fee(state["info"][0], state["info"][1], state["info"][2])
-    if balance[-1] == "度":
-        fee = f"{round(float(balance[:-1])*0.64,2)}元"
-        msg = f"「{nickname}·电费查询」\n[CQ:at,qq={event.get_user_id()}]\n[{args}]\n[剩余电量]{balance}\n[电费换算]{fee}"
+    args = event.get_plaintext().split(" ")[-1].split("-")
+    assert(len(args) == 3)
+    balance = await get_electricity_fee(args[0], args[1], args[2])
+    if balance == "获取信息失败":
+        msg = f"「{nickname}·电费查询」\n[CQ:at,qq={event.get_user_id()}]\n获取信息失败"
         await electricity.finish(Message(msg))
     else:
-        msg = f"「{nickname}·电费查询」\n[CQ:at,qq={event.get_user_id()}]\n{balance}"
+        fee = f"{round(float(balance[:-1])*0.64,2)}元"
+        msg = f"「{nickname}·电费查询」\n[CQ:at,qq={event.get_user_id()}]\n[{'-'.join(args)}]\n[剩余电量]{balance}\n[电费换算]{fee}"
         await electricity.finish(Message(msg))

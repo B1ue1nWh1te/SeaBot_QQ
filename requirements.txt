@@ -1,8 +1,6 @@
-nonebot2
 nb-cli
+nonebot2[fastapi]
 nonebot-adapter-onebot
 nonebot-plugin-apscheduler
-nonebot-plugin-htmlrender
-nonebot-plugin-chatgpt
 aiohttp
 pydantic

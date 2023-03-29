@@ -4,8 +4,8 @@ import asyncio
 Headers = {
     'Host': 'wxpay.hnu.edu.cn',
     'Referer': 'http://wxpay.hnu.edu.cn/electricCharge/home/',
-    'X-Requested-With': 'XMLHttpRequest',
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+    'X-Requested-With': 'XMLHttpRequest'
 }
 
 
